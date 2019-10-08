@@ -1,0 +1,24 @@
+<h2>login</h2>
+
+<div class="one">
+  <form [formGroup]='form' (submit)="login(form)">
+    <div class="form-group">
+      <div *ngIf="form.errors" class="alert alert.danger">
+          Form is invalid
+      </div>
+      <input [(ngModel)]="SignIn.username" placeholder="Enter Username" type="text" class="form-control" id="UsernameControl" formControlName="UsernameControl">            
+        <div *ngIf="form.controls.UsernameControl.touched && form.controls.UsernameControl.invalid" class="alert alert-danger">
+            <div *ngIf='form.controls.UsernameControl.errors.required'>
+              UserName is Required
+            </div>
+        </div>
+      <input [(ngModel)]="SignIn.password" placeholder="Enter password" type="password" class="form-control" id="passwordControl" formControlName="passwordControl">            
+        <div *ngIf="form.controls.passwordControl.touched && form.controls.passwordControl.invalid" class="alert alert-danger">
+            <div *ngIf='form.controls.passwordControl.errors.required'>
+              Password1 is Required
+            </div>
+        </div>       
+    </div>          
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+</div>

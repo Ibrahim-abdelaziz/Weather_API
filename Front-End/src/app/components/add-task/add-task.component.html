@@ -1,0 +1,24 @@
+
+<h2>Enter Your City</h2>
+
+<div class="one">
+  <form (submit)="GetWeather(form)">
+    <div class="form-group">
+      <input  placeholder="Enter Username" type="text" class="form-control">            
+             
+    </div>          
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+
+</div>
+<table class="table table-bordered table-striped table-sm">
+       
+        <tbody>
+          <tr *ngFor= "let c of city; index as i">
+
+            <th scope="col"></th>
+            <td><input type="checkbox" class="form-check-input"></td>
+            <td>{{c}}</td>
+          </tr>
+        </tbody>
+      </table>

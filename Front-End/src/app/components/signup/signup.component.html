@@ -1,0 +1,36 @@
+<h2>Register</h2>
+
+<div class="one">
+  <form [formGroup]='form' (submit)="SubmitPost(form)">
+    <div class="form-group">
+      <div *ngIf="form.errors" class="alert alert.danger">
+          Form is invalid
+      </div>
+      <input [(ngModel)]="register.username" placeholder="Enter Username" type="text" class="form-control" id="UsernameControl" formControlName="UsernameControl">            
+        <div *ngIf="form.controls.UsernameControl.touched && form.controls.UsernameControl.invalid" class="alert alert-danger">
+            <div *ngIf='form.controls.UsernameControl.errors.required'>
+              UserName is Required
+            </div>
+        </div>
+      <input [(ngModel)]="register.password1" placeholder="Enter password" type="password" class="form-control" id="password1Control" formControlName="password1Control">            
+        <div *ngIf="form.controls.password1Control.touched && form.controls.password1Control.invalid" class="alert alert-danger">
+            <div *ngIf='form.controls.password1Control.errors.required'>
+              Password1 is Required
+            </div>
+        </div>
+        <input [(ngModel)]="register.password2" placeholder="Enter password2" type="password" class="form-control" id="password2Control" formControlName="password2Control">            
+        <div *ngIf="form.controls.password2Control.touched && form.controls.password2Control.invalid" class="alert alert-danger">
+            <div *ngIf='form.controls.password2Control.errors.required'>
+              Password2 is Required
+            </div>
+        </div> 
+        <input [(ngModel)]="register.email" placeholder="Enter Email" type="text" class="form-control" id="emailControl" formControlName="emailControl">            
+        <div *ngIf="form.controls.emailControl.touched && form.controls.emailControl.invalid" class="alert alert-danger">
+            <div *ngIf='form.controls.emailControl.errors.required'>
+                Email is Required & Email must be a valid email address
+            </div>
+        </div>          
+    </div>          
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+</div>
